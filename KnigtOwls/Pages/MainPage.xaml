@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KnigtOwls.Pages.MainPage"
+             Shell.NavBarIsVisible="True">
+
+
+    <Grid RowDefinitions="Auto, *, Auto" Padding="15, 25">
+
+        <HorizontalStackLayout HorizontalOptions="EndAndExpand" Spacing="10">
+            <ImageButton Source="cog_regular_24.png" HeightRequest="25" WidthRequest="25" />
+            <ImageButton Source="user_regular_24.png" HeightRequest="25" WidthRequest="25" >
+                <ImageButton.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="SettingsButton_Clicked" />
+                </ImageButton.GestureRecognizers>
+            </ImageButton>
+        </HorizontalStackLayout>
+
+        <Image Grid.Row="1" Source="centered_logo.png" HeightRequest="250" WidthRequest="250" HorizontalOptions="Center" />
+
+        <VerticalStackLayout Grid.Row="2" Spacing="10">
+            <Button Text="CAPTURE" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111"/>
+            <Button Text="STREAM" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" />
+        </VerticalStackLayout>
+
+    </Grid>
+
+</ContentPage>

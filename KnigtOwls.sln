@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KnigtOwls", "KnigtOwls\KnigtOwls.csproj", "{FD0B7148-B65F-4B65-9DF5-0557ABA72998}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD0B7148-B65F-4B65-9DF5-0557ABA72998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0B7148-B65F-4B65-9DF5-0557ABA72998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0B7148-B65F-4B65-9DF5-0557ABA72998}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{FD0B7148-B65F-4B65-9DF5-0557ABA72998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0B7148-B65F-4B65-9DF5-0557ABA72998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD0B7148-B65F-4B65-9DF5-0557ABA72998}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C7DA884-F31F-48E1-B9C6-802C5E0A22C5}
+	EndGlobalSection
+EndGlobal
