@@ -9,7 +9,7 @@
 
         async void SettingsButton_Clicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"//{nameof(FormPage)}");
+            await Shell.Current.GoToAsync("//FormPage");
         }
     }
 }

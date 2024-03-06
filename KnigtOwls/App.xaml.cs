@@ -7,7 +7,8 @@ namespace KnigtOwls
         public App()
         {
             InitializeComponent();
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+            MainPage = new AppShell();
         }
     }
 }
