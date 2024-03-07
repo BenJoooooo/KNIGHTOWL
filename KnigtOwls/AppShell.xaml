@@ -7,13 +7,13 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="Knight Owl"
         ContentTemplate="{DataTemplate pages:MainPage}"
         Route="MainPage" />
+    <!--Title="Knight Owl"-->
 
     <ShellContent
-        Title="Report a crime"
         ContentTemplate="{DataTemplate pages:FormPage}"
         Route="FormPage" />
+    <!--Title="Report a crime"-->
 
 </Shell>

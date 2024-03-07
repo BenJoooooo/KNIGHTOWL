@@ -6,4 +6,9 @@ public partial class FormPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    async void OnBackButton_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.Navigation.PopAsync();
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using Camera.MAUI;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using UraniumUI;
 
 namespace KnigtOwls
 {
@@ -13,6 +14,8 @@ namespace KnigtOwls
                 .UseMauiApp<App>()
                 .UseMauiCameraView()
                 .UseMauiCommunityToolkit()
+                .UseUraniumUI()
+                .UseUraniumUIMaterial()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
