@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="KnigtOwls.Pages.MainPage"
-             xmlns:ur="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material">
+             xmlns:ur="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             BackgroundColor="#f6f6f6">
     <!--Shell.NavBarIsVisible="True"-->
 
 
@@ -23,7 +24,8 @@
         <Image Grid.Row="1" Source="centered_logo.png" HeightRequest="250" WidthRequest="250" HorizontalOptions="Center" />
 
         <VerticalStackLayout Grid.Row="2" Spacing="10">
-            <Button Text="CAPTURE" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111"/>
+
+            <Button Text="CAPTURE" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" Clicked="OpenCamera_Clicked" x:Name="cameraOpen"/>
             <Button Text="STREAM" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" />
         </VerticalStackLayout>
 

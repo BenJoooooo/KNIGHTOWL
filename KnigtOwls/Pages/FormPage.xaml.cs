@@ -9,6 +9,7 @@ public partial class FormPage : ContentPage
 
     async void OnBackButton_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.Navigation.PopAsync();
+        //await Shell.Current.Navigation.PopAsync();
+        await Shell.Current.GoToAsync("//MainPage");
     }
 }

@@ -42,9 +42,9 @@
             <ur:TextField Title="Last Name" AllowClear="True" AccentColor="Black" TitleColor="Black"/>
             <ur:TextField Title="Email Address" AllowClear="True" AccentColor="Black" TitleColor="Black"/>
             <ur:TextField Title="Contact Number" AllowClear="True" Keyboard="Numeric" AccentColor="Black" TitleColor="Black"/>
-            <ur:CheckBox Text="Agree on terms and conditions" />
-            <Button StyleClass="FilledButton" Text="Filled Button" BackgroundColor="Black"/>
-
+            <ur:CheckBox Text="Agree on terms and conditions" BorderColor="Black"  TextColor="black"/>
+            <Button StyleClass="FilledButton" Text="Submit" BackgroundColor="Black"/>
+            
         </VerticalStackLayout>
         
     </Grid>
