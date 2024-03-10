@@ -1,6 +1,7 @@
 ﻿using Camera.MAUI;
 using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
+using Plugin.LocalNotification;
 using UraniumUI;
 
 namespace KnigtOwls
@@ -12,6 +13,7 @@ namespace KnigtOwls
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseLocalNotification()
                 .UseMauiCameraView()
                 .UseMauiCommunityToolkit()
                 .UseUraniumUI()

@@ -23,11 +23,11 @@
             
             <ImageButton Source="cog_regular_24.png" HeightRequest="25" WidthRequest="25" />
 
-            <ImageButton Source="user_regular_24.png" HeightRequest="25" WidthRequest="25" >
+            <!--<ImageButton Source="user_regular_24.png" HeightRequest="25" WidthRequest="25" >
                 <ImageButton.GestureRecognizers>
-                    <!--<TapGestureRecognizer Tapped="SettingsButton_Clicked" />-->
+                    --><!--<TapGestureRecognizer Tapped="SettingsButton_Clicked" />--><!--
                 </ImageButton.GestureRecognizers>
-            </ImageButton>
+            </ImageButton>-->
 
         </HorizontalStackLayout>
 
