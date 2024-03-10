@@ -1,14 +1,22 @@
-﻿using KnigtOwls.Model;
+﻿using BitMiracle.LibTiff.Classic;
+using CommunityToolkit.Maui.Alerts;
+using KnigtOwls.Model;
 using Plugin.LocalNotification;
 using SkiaSharp;
+using UraniumUI.Dialogs;
+using UraniumUI.Dialogs.CommunityToolkit;
 
 namespace KnigtOwls.Pages
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage()
+
+        //public IDialogService DialogService { get; set; }
+
+        public MainPage(/*IDialogService dialogService*/)
         {
             InitializeComponent();
+            //DialogService = dialogService;
         }
 
         async void SettingsButton_Clicked(object sender, EventArgs e)
@@ -18,33 +26,16 @@ namespace KnigtOwls.Pages
 
         private void OpenPhoto_Clicked (object sender, EventArgs e)
         {
-            MainPage.CallNotif();
             MainPage.OpenPhotoCamera();
         }
 
         private void OpenCamera_Clicked(object sender, EventArgs e)
         {
-            //MainPage.CallNotif();
             MainPage.OpenCamera();
         }
 
         public static async void OpenCamera()
         {
-            var request = new NotificationRequest
-            {
-                NotificationId = 1353,
-                Title = "Notification",
-                Subtitle = "Camera Opened",
-                Description = "Capture photo",
-                BadgeNumber = 32,
-                Schedule = new NotificationRequestSchedule
-                {
-                    NotifyTime = DateTime.Now.AddSeconds(5)
-                }
-            };
-
-            await LocalNotificationCenter.Current.Show(request);
-
             var status = await Permissions.RequestAsync<Permissions.Camera>();
 
             if (MediaPicker.Default.IsCaptureSupported && status == PermissionStatus.Granted)
@@ -116,23 +107,30 @@ namespace KnigtOwls.Pages
             }
         }
 
-        public static async void CallNotif()
-        {
+        //private async void OpenCamera_Clicked(object sender, EventArgs e)
+        //{
+        //    var result = await this.DisplayTextPromptAsync("Your Name", "What is your name?", placeholder: "Uvuvwevwevwe...Osas");
 
-            var request = new NotificationRequest
-            {
-                NotificationId = 1353,
-                Title = "Notification",
-                Subtitle = "Camera Opened",
-                Description = "Capture photo",
-                BadgeNumber = 32,
-                Schedule = new NotificationRequestSchedule
-                {
-                    NotifyTime = DateTime.Now.AddSeconds(5)
-                }
-            };
+        //    await DisplayAlert("Result:", result, "OK");
+        //}
 
-            await LocalNotificationCenter.Current.Show(request);
-        }
+        //public static async void CallNotif()
+        //{
+
+        //    var request = new NotificationRequest
+        //    {
+        //        NotificationId = 1353,
+        //        Title = "Notification",
+        //        Subtitle = "Camera Opened",
+        //        Description = "Capture photo",
+        //        BadgeNumber = 32,
+        //        Schedule = new NotificationRequestSchedule
+        //        {
+        //            NotifyTime = DateTime.Now.AddSeconds(5)
+        //        }
+        //    };
+
+        //    await LocalNotificationCenter.Current.Show(request);
+        //}
     }
 }

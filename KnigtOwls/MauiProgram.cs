@@ -11,6 +11,9 @@ namespace KnigtOwls
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
+            builder.Services.AddCommunityToolkitDialogs();
+            builder.Services.AddMopupsDialogs();
+
             builder
                 .UseMauiApp<App>()
                 .UseLocalNotification()
