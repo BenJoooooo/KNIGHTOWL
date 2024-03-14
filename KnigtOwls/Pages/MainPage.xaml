@@ -9,8 +9,14 @@
 
     <Grid RowDefinitions="Auto, *, Auto" Padding="15, 25">
 
+        <HorizontalStackLayout HorizontalOptions="StartAndExpand" Spacing="10">
+
+            <ImageButton Source="menu.png" HeightRequest="25" WidthRequest="25" />
+
+        </HorizontalStackLayout>
+
         <HorizontalStackLayout HorizontalOptions="EndAndExpand" Spacing="10">
-            
+
             <ImageButton Source="cog_regular_24.png" HeightRequest="25" WidthRequest="25" />
             
             <ImageButton Source="user_regular_24.png" HeightRequest="25" WidthRequest="25" >
@@ -25,8 +31,8 @@
 
         <Frame HasShadow="True" Padding="10" BorderColor="Black" Grid.Row="2">
             <VerticalStackLayout Spacing="10">
-                <Button Text="CAPTURE" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" Clicked="OpenCamera_Clicked" x:Name="cameraOpen"/>
-                <Button Text="STREAM" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" Clicked="OpenPhoto_Clicked" x:Name="photoOpen"/>
+                <Button Text="CAPTURE" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" Clicked="OpenPhoto_Clicked" x:Name="cameraOpen"/>
+                <Button Text="STREAM" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" Clicked="OpenCamera_Clicked" x:Name="photoOpen"/>
             </VerticalStackLayout>
         </Frame>
 

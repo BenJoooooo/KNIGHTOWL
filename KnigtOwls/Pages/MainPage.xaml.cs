@@ -24,7 +24,7 @@ namespace KnigtOwls.Pages
             await Shell.Current.GoToAsync("//FormPage");
         }
 
-        private void OpenPhoto_Clicked (object sender, EventArgs e)
+        private  void OpenPhoto_Clicked (object sender, EventArgs e)
         {
             MainPage.OpenPhotoCamera();
         }

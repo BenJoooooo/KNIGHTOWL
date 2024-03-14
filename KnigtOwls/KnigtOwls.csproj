@@ -71,6 +71,7 @@
 	  <None Remove="Resources\Images\centered_logo.png" />
 	  <None Remove="Resources\Images\cog_regular_24.png" />
 	  <None Remove="Resources\Images\left_arrow.png" />
+	  <None Remove="Resources\Images\menu.png" />
 	  <None Remove="Resources\Images\user_regular_24.png" />
 	  <None Remove="Resources\Splash\centered_logo.jpg" />
 	</ItemGroup>
@@ -85,6 +86,7 @@
 		<PackageReference Include="UraniumUI.Dialogs.CommunityToolkit" Version="2.5.0" />
 		<PackageReference Include="UraniumUI.Dialogs.Mopups" Version="2.5.0" />
 		<PackageReference Include="UraniumUI.Material" Version="2.5.0" />
+		<PackageReference Include="UraniumUI.Validations.DataAnnotations" Version="2.5.0" />
 	</ItemGroup>
 
 	<ItemGroup>
