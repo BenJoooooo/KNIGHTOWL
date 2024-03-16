@@ -26,7 +26,7 @@ namespace KnigtOwls.Model
         [Required(ErrorMessage = "Contact number is required")]
         [Phone(ErrorMessage = "Input is not a valid phone number")]
         [MinLength(10, ErrorMessage = "Phone number must be atleast 10 characters")]
-        public int Contact { get; set; }
+        public string Contact { get; set; }
 
         public bool terms { get; set; }
 

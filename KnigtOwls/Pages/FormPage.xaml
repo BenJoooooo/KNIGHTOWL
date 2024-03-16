@@ -14,53 +14,61 @@
         <val:FormModel />
     </ContentPage.BindingContext>
 
-    <Grid RowDefinitions="Auto, *, Auto" Padding="25, 25">
+    <ScrollView>
 
-        <HorizontalStackLayout HorizontalOptions="StartAndExpand" Spacing="10">
+        <Grid RowDefinitions="Auto, *, Auto" Padding="25, 25">
 
-            <ImageButton Source="left_arrow.png" HeightRequest="25" WidthRequest="25" >
-                <ImageButton.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnBackButton_Clicked" />
-                </ImageButton.GestureRecognizers>
-            </ImageButton>
+            <HorizontalStackLayout HorizontalOptions="StartAndExpand" Spacing="10">
 
-        </HorizontalStackLayout>
+                <ImageButton Source="left_arrow.png" HeightRequest="25" WidthRequest="25" >
+                    <ImageButton.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackButton_Clicked" />
+                    </ImageButton.GestureRecognizers>
+                </ImageButton>
 
-        <HorizontalStackLayout HorizontalOptions="EndAndExpand" Spacing="10">
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="EndAndExpand" Spacing="10">
             
-            <ImageButton Source="cog_regular_24.png" HeightRequest="25" WidthRequest="25" />
+                <ImageButton Source="cog_regular_24.png" HeightRequest="25" WidthRequest="25" />
 
-            <!--<ImageButton Source="user_regular_24.png" HeightRequest="25" WidthRequest="25" >
-                <ImageButton.GestureRecognizers>
-                    --><!--<TapGestureRecognizer Tapped="SettingsButton_Clicked" />--><!--
-                </ImageButton.GestureRecognizers>
-            </ImageButton>-->
+                <!--<ImageButton Source="user_regular_24.png" HeightRequest="25" WidthRequest="25" >
+                    <ImageButton.GestureRecognizers>
+                        --><!--<TapGestureRecognizer Tapped="SettingsButton_Clicked" />--><!--
+                    </ImageButton.GestureRecognizers>
+                </ImageButton>-->
 
-        </HorizontalStackLayout>
+            </HorizontalStackLayout>
 
-        <VerticalStackLayout Grid.Row="1" Spacing="15" VerticalOptions="CenterAndExpand">
+            <VerticalStackLayout Grid.Row="1" Spacing="15" VerticalOptions="CenterAndExpand">
 
-            <input:FormView SubmitCommand="{Binding SubmitCommand}" Spacing="15">
+                <input:FormView SubmitCommand="{Binding SubmitCommand}" Spacing="15">
 
-                <Label 
-                FontSize="20"
-                Text="Knight Owls"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center"
-                FontAttributes="Bold"/>
+                    <Label 
+                    TextColor="Black"
+                    FontSize="20"
+                    Text="Knight Owls"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"/>
 
-                <ur:TextField Title="First Name" AllowClear="True" AccentColor="Black" TitleColor="Black" Text="{vm:ValidationBinding FirstName}"/>
-                <ur:TextField Title="Last Name" AllowClear="True" AccentColor="Black" TitleColor="Black" Text="{vm:ValidationBinding LastName}" />
-                <ur:TextField Title="Email Address" AllowClear="True" AccentColor="Black" TitleColor="Black" Text="{vm:ValidationBinding Email}" />
-                <ur:TextField Title="Contact Number" AllowClear="True" Keyboard="Numeric" AccentColor="Black" TitleColor="Black" Text="{vm:ValidationBinding Contact}" />
-                <ur:CheckBox Text="Agree on terms and conditions" BorderColor="Black"  TextColor="black"/>
-                <Button StyleClass="FilledButton" Text="Submit" BackgroundColor="Black" input:FormView.IsSubmitButton="True"/>
-            </input:FormView>
+                    <Image Grid.Row="1" Source="centered_logo.png" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center" />
 
-        </VerticalStackLayout>
+                    <ur:TextField Title="First Name" AllowClear="True" TextColor="Black" AccentColor="Black" TitleColor="Black" Text="{vm:ValidationBinding FirstName}"/>
+                    <ur:TextField Title="Last Name" AllowClear="True" TextColor="Black" AccentColor="Black" TitleColor="Black" Text="{vm:ValidationBinding LastName}" />
+                    <ur:TextField Title="Email Address" AllowClear="True" TextColor="Black" AccentColor="Black" TitleColor="Black" Text="{vm:ValidationBinding Email}" />
+                    <ur:TextField Title="Contact Number" AllowClear="True" TextColor="Black" Keyboard="Numeric" AccentColor="Black" TitleColor="Black" Text="{vm:ValidationBinding Contact}" />
+                    <ur:CheckBox Text="Agree on terms and conditions" BorderColor="Black"  TextColor="black"/>
+                
+                    <Button StyleClass="FilledButton" Text="Submit" BackgroundColor="Black" input:FormView.IsSubmitButton="True"/>
+                    <Button StyleClass="FilledButton" Text="Clear" BackgroundColor="black" TextColor="white" Clicked="ClearForm_Clicked" />
+
+                </input:FormView>
+
+            </VerticalStackLayout>
         
-    </Grid>
-    
+        </Grid>
 
-    
+    </ScrollView>
+
 </ContentPage>

@@ -2,6 +2,7 @@
 using CommunityToolkit.Maui.Alerts;
 using KnigtOwls.Model;
 using Plugin.LocalNotification;
+using Plugin.LocalNotification.AndroidOption;
 using SkiaSharp;
 using UraniumUI.Dialogs;
 using UraniumUI.Dialogs.CommunityToolkit;
@@ -16,7 +17,19 @@ namespace KnigtOwls.Pages
         public MainPage(/*IDialogService dialogService*/)
         {
             InitializeComponent();
-            //DialogService = dialogService;
+            LocalNotificationCenter.Current.NotificationActionTapped += Current_NotificationActionTapped;
+        }
+
+        private void Current_NotificationActionTapped (Plugin.LocalNotification.EventArgs.NotificationActionEventArgs e)
+        {
+            if (e.IsDismissed)
+            {
+
+            }
+            else if (e.IsTapped)
+            {
+
+            }
         }
 
         async void SettingsButton_Clicked(object sender, EventArgs e)
@@ -24,14 +37,44 @@ namespace KnigtOwls.Pages
             await Shell.Current.GoToAsync("//FormPage");
         }
 
-        private  void OpenPhoto_Clicked (object sender, EventArgs e)
+        private async void OpenPhoto_Clicked (object sender, EventArgs e)
         {
+            await DisplayAlert("Notification", "Allow the app to open camera?", "OK");
             MainPage.OpenPhotoCamera();
+
+            var request = new NotificationRequest
+            {
+                NotificationId = 12,
+                Title = "Camera opened",
+                Subtitle = "Camera requesting",
+                Description = "Camera is now opening",
+                BadgeNumber = 15,
+                Schedule = new NotificationRequestSchedule
+                {
+                    NotifyTime = DateTime.Now.AddSeconds(5)
+                }
+            };
+            await LocalNotificationCenter.Current.Show(request);
         }
 
-        private void OpenCamera_Clicked(object sender, EventArgs e)
+        private async void OpenCamera_Clicked(object sender, EventArgs e)
         {
+            await DisplayAlert("Notification", "Allow the app to open camera?", "OK");
             MainPage.OpenCamera();
+
+            var request = new NotificationRequest
+            {
+                NotificationId = 12,
+                Title = "Camera opened",
+                Subtitle = "Camera requesting",
+                Description = "Camera is now opening",
+                BadgeNumber = 15,
+                Schedule = new NotificationRequestSchedule
+                {
+                    NotifyTime = DateTime.Now.AddSeconds(5)
+                }
+            };
+            await LocalNotificationCenter.Current.Show(request);
         }
 
         public static async void OpenCamera()

@@ -18,15 +18,15 @@
         <HorizontalStackLayout HorizontalOptions="EndAndExpand" Spacing="10">
 
             <ImageButton Source="cog_regular_24.png" HeightRequest="25" WidthRequest="25" />
-            
+
             <ImageButton Source="user_regular_24.png" HeightRequest="25" WidthRequest="25" >
                 <ImageButton.GestureRecognizers>
                     <TapGestureRecognizer Tapped="SettingsButton_Clicked" />
                 </ImageButton.GestureRecognizers>
             </ImageButton>
-            
-        </HorizontalStackLayout>
 
+        </HorizontalStackLayout>
+        
         <Image Grid.Row="1" Source="centered_logo.png" HeightRequest="250" WidthRequest="250" HorizontalOptions="Center" />
 
         <Frame HasShadow="True" Padding="10" BorderColor="Black" Grid.Row="2">
