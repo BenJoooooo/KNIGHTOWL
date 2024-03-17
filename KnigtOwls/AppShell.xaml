@@ -22,4 +22,11 @@
         Route="FormPage" />
     <!--Title="Report a crime"-->
 
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:CameraViewPage}"
+        Route="CameraViewPage" />
+
+    <ShellContent
+        ContentTemplate="{DataTemplate pages:VideoViewPage}"
+        Route="VideoViewPage" />
 </Shell>

@@ -12,12 +12,22 @@ namespace KnigtOwls.Pages
     public partial class MainPage : ContentPage
     {
 
-        //public IDialogService DialogService { get; set; }
-
-        public MainPage(/*IDialogService dialogService*/)
+        public MainPage()
         {
             InitializeComponent();
             LocalNotificationCenter.Current.NotificationActionTapped += Current_NotificationActionTapped;
+        }
+
+        async void frameCamera_Clicked( object sender, EventArgs e )
+        {
+            await DisplayAlert("Notification", "Allow open camera?", "OK");
+            await Shell.Current.GoToAsync("//CameraViewPage");
+        }
+
+        async void frameVideo_Clicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Notification", "Allow open camera?", "OK");
+            await Shell.Current.GoToAsync("//VideoViewPage");
         }
 
         private void Current_NotificationActionTapped (Plugin.LocalNotification.EventArgs.NotificationActionEventArgs e)

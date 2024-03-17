@@ -31,8 +31,10 @@
 
         <Frame HasShadow="True" Padding="10" BorderColor="Black" Grid.Row="2">
             <VerticalStackLayout Spacing="10">
-                <Button Text="CAPTURE" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" Clicked="OpenPhoto_Clicked" x:Name="cameraOpen"/>
-                <Button Text="STREAM" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" Clicked="OpenCamera_Clicked" x:Name="photoOpen"/>
+                <!--<Button Text="CAPTURE" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" Clicked="OpenPhoto_Clicked" x:Name="cameraOpen"/>-->
+                <!--<Button Text="STREAM" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" Clicked="OpenCamera_Clicked" x:Name="photoOpen"/>-->
+                <Button Text="Capture" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" Clicked="frameCamera_Clicked" x:Name="sampleOpen"/>
+                <Button Text="Stream" FontAttributes="Bold" FontSize="30" Padding="20" BackgroundColor="#111111" Clicked="frameVideo_Clicked" x:Name="photoOpen"/>
             </VerticalStackLayout>
         </Frame>
 

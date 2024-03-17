@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KnigtOwls.Pages.CameraViewPage"
+             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             BackgroundColor="#f6f6f6">
+
+    <!--Title="CameraViewPage">-->
+
+    <!--<VerticalStackLayout Spacing="25" Padding="30, 0" VerticalOptions="Fill" HorizontalOptions="Fill">
+
+
+    </VerticalStackLayout>-->
+
+    <ScrollView>
+
+        <Grid RowDefinitions="Auto, *, Auto" Padding="25, 25">
+
+            <HorizontalStackLayout HorizontalOptions="StartAndExpand" Spacing="10">
+
+                <ImageButton Source="left_arrow.png" HeightRequest="25" WidthRequest="25" >
+                    <ImageButton.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackButton_Clicked" />
+                    </ImageButton.GestureRecognizers>
+                </ImageButton>
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="EndAndExpand" Spacing="10">
+
+                <ImageButton Source="cog_regular_24.png" HeightRequest="25" WidthRequest="25" />
+
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand" Spacing="10">
+
+                <Image Grid.Row="1" Source="centered_logo.png" HeightRequest="25" WidthRequest="25" HorizontalOptions="Center" />
+
+            </HorizontalStackLayout>
+
+            <VerticalStackLayout Grid.Row="1" VerticalOptions="CenterAndExpand">
+
+                <Frame x:Name="cameraFrame">
+                    <cv:CameraView x:Name="cameraView" WidthRequest="300" HeightRequest="500" CamerasLoaded="cameraView_CamerasLoaded"/>
+                </Frame>
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="2" HorizontalOptions="CenterAndExpand" Spacing="10">
+
+                <ImageButton x:Name="capture_Button" Source="box.png" HeightRequest="40" WidthRequest="40" >
+                    <ImageButton.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnCapture_Clicked" />
+                    </ImageButton.GestureRecognizers>
+                </ImageButton>
+
+                <Button Text="Send" FontAttributes="Bold" FontSize="30" Padding="20, 10" BackgroundColor="#111111" Clicked="OnNext_Clicked" x:Name="nextButton"/>
+
+            </VerticalStackLayout>
+           
+
+        </Grid>
+
+    </ScrollView>
+
+
+</ContentPage>
