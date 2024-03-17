@@ -22,11 +22,16 @@ public partial class VideoViewPage : ContentPage
 
     private async Task InitializeCamera()
     {
-        await cameraView.StopCameraAsync();
+        await cameraView.StopRecordingAsync();
         nextButton.IsVisible = false;
         cameraView.Camera = cameraView.Cameras.FirstOrDefault();
         capture_Button.IsVisible = true;
-        await cameraView.StartCameraAsync();
+
+        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        string filename = "recordKnightOwl.mp4";
+        string filePath = Path.Combine(documentsPath, filename);
+
+        await cameraView.StartRecordingAsync(filePath, new Size(1920, 1080));
     }
 
     private void CameraView_CamerasLoaded(object sender, EventArgs e)
@@ -41,12 +46,11 @@ public partial class VideoViewPage : ContentPage
 
         MainThread.BeginInvokeOnMainThread(async () =>
         {
-            await cameraView.StopCameraAsync();
             await cameraView.StartRecordingAsync(filePath, new Size(1920, 1080));
         });
     }
 
-    private async void OnCapture_Clicked(object sender, EventArgs e)
+    private void OnCapture_Clicked(object sender, EventArgs e)
     {
         var image = cameraView.GetSnapShot(Camera.MAUI.ImageFormat.PNG);
 
