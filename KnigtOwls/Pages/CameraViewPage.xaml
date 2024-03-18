@@ -18,6 +18,10 @@
 
             <HorizontalStackLayout HorizontalOptions="StartAndExpand" Spacing="10">
 
+                <VerticalStackLayout HorizontalOptions="CenterAndExpand" HeightRequest="25">
+                    <Image x:Name="popup"></Image>
+                </VerticalStackLayout>
+
                 <ImageButton Source="left_arrow.png" HeightRequest="25" WidthRequest="25" >
                     <ImageButton.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnBackButton_Clicked" />

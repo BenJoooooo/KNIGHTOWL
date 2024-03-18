@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Alerts;
 using Microsoft.Maui;
 
 namespace KnigtOwls.Pages;
@@ -23,20 +24,35 @@ public partial class VideoViewPage : ContentPage
     private async Task InitializeCamera()
     {
         await cameraView.StopRecordingAsync();
+
         nextButton.IsVisible = false;
+
         cameraView.Camera = cameraView.Cameras.FirstOrDefault();
+
         capture_Button.IsVisible = true;
 
         string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         string filename = "recordKnightOwl.mp4";
         string filePath = Path.Combine(documentsPath, filename);
 
-        await cameraView.StartRecordingAsync(filePath, new Size(1920, 1080));
+        await cameraView.StartRecordingAsync(filePath, new Size(1920, 1080) );
+
+        string message = "Camera is now recording";
+
+        var snackbar = Snackbar.Make(message, null, "Okay",
+            TimeSpan.FromSeconds(10), new CommunityToolkit.Maui.Core.SnackbarOptions
+            {
+                BackgroundColor = Colors.DarkGrey,
+                TextColor = Colors.White,
+                CornerRadius = 10,
+
+            }, popup);
+
+        await snackbar.Show();
     }
 
     private void CameraView_CamerasLoaded(object sender, EventArgs e)
     {
-        //nextButton.IsVisible = false;
 
         cameraView.Camera = cameraView.Cameras.First();
 
@@ -66,6 +82,7 @@ public partial class VideoViewPage : ContentPage
             cameraFrame.Content = capturedImage;
 
             capture_Button.IsVisible = false;
+
             nextButton.IsVisible = true;
         }
     }

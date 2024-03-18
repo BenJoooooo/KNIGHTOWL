@@ -1,3 +1,5 @@
+using CommunityToolkit.Maui.Alerts;
+
 namespace KnigtOwls.Pages;
 
 public partial class CameraViewPage : ContentPage
@@ -16,11 +18,28 @@ public partial class CameraViewPage : ContentPage
 	private async Task InitializeCamera()
 	{
 		await cameraView.StopCameraAsync();
+
 		nextButton.IsVisible = false;
+
 		cameraView.Camera = cameraView.Cameras.FirstOrDefault();
+
 		capture_Button.IsVisible = true;
+
 		await cameraView.StartCameraAsync();
-	}
+
+        string message = "Camera is now open";
+
+        var snackbar = Snackbar.Make(message, null, "Okay",
+            TimeSpan.FromSeconds(10), new CommunityToolkit.Maui.Core.SnackbarOptions
+            {
+                BackgroundColor = Colors.DarkGrey,
+                TextColor = Colors.White,
+				CornerRadius = 10,
+				
+            }, popup);
+
+        await snackbar.Show();
+    }
 
     async void OnBackButton_Clicked(object sender, EventArgs e)
     {
