@@ -4,41 +4,46 @@ namespace KnigtOwls.Pages;
 
 public partial class CameraViewPage : ContentPage
 {
-	public CameraViewPage()
-	{
-		InitializeComponent();
-		this.Appearing += OnPageReapearing;
-	}
+    public CameraViewPage()
+    {
+        InitializeComponent();
+        this.Appearing += OnPageReapearing;
+    }
 
-	private async void OnPageReapearing(object sender, EventArgs e)
-	{
-		await InitializeCamera();
-	}
+    private async void OnPageReapearing(object sender, EventArgs e)
+    {
+        await InitializeCamera();
+        ShowPopUp();  
+    }
 
-	private async Task InitializeCamera()
-	{
-		await cameraView.StopCameraAsync();
+    private async Task InitializeCamera()
+    {
+        await cameraView.StopCameraAsync();
 
-		nextButton.IsVisible = false;
+        nextButton.IsVisible = false;
 
-		cameraView.Camera = cameraView.Cameras.FirstOrDefault();
+        cameraView.Camera = cameraView.Cameras.FirstOrDefault();
 
-		capture_Button.IsVisible = true;
+        capture_Button.IsVisible = true;
 
-		await cameraView.StartCameraAsync();
+        await cameraView.StartCameraAsync();
 
+    }
+
+    public void ShowPopUp()
+    {
         string message = "Camera is now open";
 
         var snackbar = Snackbar.Make(message, null, "Okay",
-            TimeSpan.FromSeconds(10), new CommunityToolkit.Maui.Core.SnackbarOptions
+            TimeSpan.FromSeconds(2), new CommunityToolkit.Maui.Core.SnackbarOptions
             {
                 BackgroundColor = Colors.DarkGrey,
                 TextColor = Colors.White,
-				CornerRadius = 10,
-				
+                CornerRadius = 10,
+
             }, popup);
 
-        await snackbar.Show();
+        snackbar.Show();
     }
 
     async void OnBackButton_Clicked(object sender, EventArgs e)
@@ -48,39 +53,39 @@ public partial class CameraViewPage : ContentPage
 
     private void cameraView_CamerasLoaded(object sender, EventArgs e)
     {
-		nextButton.IsVisible = false;
+        nextButton.IsVisible = false;
 
-		cameraView.Camera = cameraView.Cameras.First();
+        cameraView.Camera = cameraView.Cameras.First();
 
-		MainThread.BeginInvokeOnMainThread( async () =>
-		{
-			await cameraView.StartCameraAsync();
-		});
+        MainThread.BeginInvokeOnMainThread(async () =>
+        {
+            await cameraView.StartCameraAsync();
+        });
     }
 
-	private void OnCapture_Clicked(object sender, EventArgs e)
-	{
-		var image = cameraView.GetSnapShot(Camera.MAUI.ImageFormat.PNG);
+    private async void OnCapture_Clicked(object sender, EventArgs e)
+    {
+        var image = cameraView.GetSnapShot(Camera.MAUI.ImageFormat.PNG);
 
-		if(image !=  null)
-		{
-			var capturedImage = new Image
-			{
-				Source = image,
-				WidthRequest = 300,
-				HeightRequest = 500
-			};
+        if (image != null)
+        {
+            var capturedImage = new Image
+            {
+                Source = image,
+                WidthRequest = 300,
+                HeightRequest = 500
+            };
 
-			cameraFrame.Content = capturedImage;
+            cameraFrame.Content = capturedImage;
 
-			capture_Button.IsVisible = false;
-			nextButton.IsVisible = true;
-		}
-	}
+            capture_Button.IsVisible = false;
+            nextButton.IsVisible = true;
+        }
+    }
 
-	private async void OnNext_Clicked(object sender, EventArgs e)
-	{
-		await DisplayAlert("Notification", "Photo has been sent", "OK");
-		await Shell.Current.GoToAsync("//MainPage");
-	}
+    private async void OnNext_Clicked(object sender, EventArgs e)
+    {
+        await DisplayAlert("Notification", "Photo has been sent", "OK");
+        await Shell.Current.GoToAsync("//MainPage");
+    }
 }
